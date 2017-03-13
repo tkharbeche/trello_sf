@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Tasks' %}
+
+{% block header %}
+
+    <h1>The Tasks</h1>
+
+{% endblock %}
+
+{% block content %}
+
+    {% for task in tasks %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{ task.description }}
+            </div>
+        </div>
+    {% else %}
+        no tasks
+    {% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    <a href="">Lien vers la page Twig Test</a>
+{% endblock %}
