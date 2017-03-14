@@ -22,6 +22,7 @@ class Category
      */
     private $id;
 
+
     /**
      * @var string
      *
@@ -45,8 +46,6 @@ class Category
     }
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -55,27 +54,44 @@ class Category
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Category
+     * @param int $id
      */
-    public function setName($name)
+    public function setId($id)
     {
-        $this->name = $name;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
     {
         return $this->name;
     }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+    /**
+     * @param ArrayCollection $tasks
+     */
+    public function setTasks($tasks)
+    {
+        $this->tasks = $tasks;
+    }
+
 }
 

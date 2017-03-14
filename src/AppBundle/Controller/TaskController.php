@@ -19,8 +19,7 @@ class TaskController extends Controller
      */
     public function listAction()
     {
-        // A modifier pour le mettre dans un service
-        $tasks = $this->getDoctrine()->getManager()->getRepository(Task::class)->getListTasks();
+        $tasks = $this->get('app.task.manager')->getList();
         return $this->render(':task:list.html.twig', array(
             'tasks' => $tasks
 

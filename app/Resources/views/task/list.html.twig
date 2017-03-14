@@ -9,17 +9,23 @@
 {% endblock %}
 
 {% block content %}
-
-    {% for task in tasks %}
+    <div class="row">
+    {% for category in categorys %}
+        <div class="col-md-3">
+            <h2> {{ category.name }} <span class="badge">{{ category.tasks | length }}</span></h2>
         <div class="panel panel-default">
             <div class="panel-body">
-                {{ task.description }}
+                {% for task in category.tasks %}
+                    <h3>{{ task.name }}</h3>
+                    {{ task.description }}
+                {% endfor %}
             </div>
+        </div>
         </div>
     {% else %}
         no tasks
     {% endfor %}
-
+    </div>
 {% endblock %}
 
 {% block footer %}
