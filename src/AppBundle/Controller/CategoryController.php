@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function ListCatAction()
     {
-        $categorys = $this->get('app.category.manager')->getCategoryTask();
-        return $this->render(':task:list.html.twig', array(
+        $categorys = $this->get('app.category.manager')->all();
+        return $this->render(':category:list.html.twig', array(
             'categorys' => $categorys
 
         ));

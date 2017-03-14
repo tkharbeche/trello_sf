@@ -13,7 +13,7 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
     /**
      * @return array
      */
-    public function getCategTask()
+    public function getAll()
     {
         return $this->createQueryBuilder('c')
             ->select('c')

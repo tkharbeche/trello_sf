@@ -4,28 +4,28 @@
 
 {% block header %}
 
-    <h1>The Tasks</h1>
+    <h1>ADD NEW TASK</h1>
 
 {% endblock %}
 
 {% block content %}
     <div class="row">
-    {% for category in categorys %}
         <div class="col-md-3">
-            <h2> {{ category.name }} <span class="badge">{{ category.tasks | length }}</span></h2>
         <div class="panel panel-default">
             <div class="panel-body">
-                {% for task in category.tasks %}
-                    <h3>{{ task.name }}</h3>
-                    {{ task.description }}
-                {% endfor %}
+                {{ form_start(form,{'attr': {'class': 'form-horizontal'}}) }}
+                {{ form_errors(form) }}
+                {{ form_widget(form,{'attr': {'class': 'form-group'}}) }}
+
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary btn-lg">Ajouter</button>
+                </div>
+
             </div>
         </div>
         </div>
-    {% else %}
-        no tasks
-    {% endfor %}
     </div>
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block footer %}
