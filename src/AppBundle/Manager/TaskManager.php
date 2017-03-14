@@ -52,22 +52,11 @@ class TaskManager
 
     }
 
-    /**
-     * @return array
-     */
-
-    public function getList()
+    public function updateTask(Task $task)
     {
-        $tasks = $this->getRepository()->getListTasks();
-        return $tasks;
+        $this->entityManager->flush($task);
     }
 
-    /**
-     * @return \AppBundle\Repository\TaskRepository|\Doctrine\Common\Persistence\ObjectRepository
-     */
-    public function getRepository()
-    {
-        return $this->entityManager->getRepository(Task::class);
-    }
+
 
 }

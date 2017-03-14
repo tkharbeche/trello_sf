@@ -21,9 +21,9 @@ class CategoryManager
         $this->entityManager = $entityManager;
     }
 
-    public function getCategoryTask()
+    public function all()
     {
-        return $this->repository()->getCategTask();
+        return $this->repository()->getAll();
 
     }
 

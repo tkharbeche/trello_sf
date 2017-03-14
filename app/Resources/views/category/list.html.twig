@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Tasks' %}
+
+{% block header %}
+
+<h1>The Tasks</h1>
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for category in categorys %}
+    <div class="col-md-3">
+        <h2> {{ category.name }} <span class="badge">{{ category.tasks | length }}</span></h2>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {% for task in category.tasks %}
+                    <div class="pull-right"><a href="{{ path('app.task.update',{'id': task.id}) }}"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></a></div>
+                <h3>{{ task.name }}</h3>
+                {{ task.description }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    no tasks
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+{{ parent() }}
+<a href="">Lien vers la page Twig Test</a>
+{% endblock %}
