@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Task;
+
 /**
  * TaskRepository
  *
@@ -10,4 +12,14 @@ namespace AppBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getListTasks()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t')
+            ->andWhere('t.status = :status' )
+            ->setParameter(':status', Task::STATUS_OPENED)
+            ->getQuery()
+            ->getResult();
+    }
 }

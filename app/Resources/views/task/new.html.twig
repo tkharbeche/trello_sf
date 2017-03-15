@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Tasks' %}
+
+{% block header %}
+
+    <h1>ADD NEW TASK</h1>
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+        <div class="form-horizontal">
+
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                {{ form_widget(form,{'attr': {'class': 'form-group'}}) }}
+
+                <div class="form-action">
+                    <button type="submit" class="btn btn-primary btn-lg">Ajouter</button>
+                </div>
+
+
+        </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    <a href="">Lien vers la page Twig Test</a>
+{% endblock %}
