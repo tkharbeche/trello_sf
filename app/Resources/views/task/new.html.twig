@@ -11,9 +11,11 @@
 {% block content %}
     <div class="row">
         <div class="col-md-3">
+
         <div class="panel panel-default">
             <div class="panel-body">
                 {{ form_start(form,{'attr': {'class': 'form-horizontal'}}) }}
+
                 {{ form_errors(form) }}
                 {{ form_widget(form,{'attr': {'class': 'form-group'}}) }}
 
@@ -22,6 +24,7 @@
                 </div>
 
             </div>
+
         </div>
         </div>
     </div>
