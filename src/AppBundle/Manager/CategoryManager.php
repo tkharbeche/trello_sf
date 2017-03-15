@@ -27,6 +27,21 @@ class CategoryManager
 
     }
 
+    public function create()
+    {
+        return new Category();
+    }
+
+    public function save(Category $category)
+    {
+        if( null === $category->getId() )
+        {
+            $this->entityManager->persist($category);
+        }
+
+        $this->entityManager->flush();
+    }
+
     private function repository()
     {
         return $this->entityManager->getRepository(Category::class);
